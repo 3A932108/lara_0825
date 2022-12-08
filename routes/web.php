@@ -20,6 +20,11 @@ Route::get('/', function () {
     $post->title="test_title";
     $post->content="test_content";
     $post->save();
+
+    Post::create([
+        'title'=>'created title',
+        'content'=>'created content',
+    ]);
     return 'Saved success.';
 });
 
