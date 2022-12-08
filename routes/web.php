@@ -15,12 +15,13 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    // return redirect(route('posts.index'));
+    /*新增db資料;
     $post = new Post();
     $post->title = "test_title";
     $post->content = "test_content";
     $post->save();
 
+    /*create方式儲存資料
     Post::create([
         'title' => 'created title',
         'content' => 'created content',]);
@@ -47,20 +48,30 @@ Route::get('/', function () {
 
     /*3-3用where方法查尋id小於10的貼文，並遞減排序
     $posts = Post::where('id','<','10')->orderBy('id','DESC')->get();
-    dd($posts); */
-
+    dd($posts);
+   /*save方式更新資料
     $post = Post::find(1);
     $post->title = 'saved title ';
     $post->content = 'saved content';
     $post->save();
+});*/
+    /*P5刪除DB資料
+     *用delete刪除一筆資料*/
+    $post = Post::find(1);
+    $post->delete();
+    return 'Delete success.';
 
+    /*用destroy刪除單筆或多筆資料
+    //Post::destroy(2);
+    Post::destroy(5,7,9);
+    return 'Delete success.'; */
+
+    Route::get('posts', [PostController::class, 'index'])
+        ->name('posts.index');
+    Route::get('post', [PostController::class, 'show'])
+        ->name('posts.show');
+    Route::get('contact', [PostController::class, 'contact'])
+        ->name('posts.contact');
+    Route::get('about', [PostController::class, 'about'])
+        ->name('posts.about');
 });
-
-Route::get('posts',[PostController::class, 'index'])
-    ->name('posts.index');
-Route::get('post',[PostController::class, 'show'])
-    ->name('posts.show');
-Route::get('contact',[PostController::class, 'contact'])
-    -> name('posts.contact');
-Route::get('about',[PostController::class, 'about'])
-    ->name('posts.about');
