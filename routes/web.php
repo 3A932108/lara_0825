@@ -15,15 +15,15 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-   // return redirect(route('posts.index'));
+    // return redirect(route('posts.index'));
     $post = new Post();
-    $post->title="test_title";
-    $post->content="test_content";
+    $post->title = "test_title";
+    $post->content = "test_content";
     $post->save();
 
     Post::create([
-        'title'=>'created title',
-        'content'=>'created content',]);
+        'title' => 'created title',
+        'content' => 'created content',]);
     return 'Saved success.';
     /*3-1用find方法查詢post(只能找1筆)
        $post = Post::find(1);
@@ -45,12 +45,16 @@ Route::get('/', function () {
     dd($posts);
     */
 
-    /*3-3用where方法查尋id小於10的貼文，並遞減排序*/
+    /*3-3用where方法查尋id小於10的貼文，並遞減排序
     $posts = Post::where('id','<','10')->orderBy('id','DESC')->get();
-    dd($posts);
+    dd($posts); */
 
-
-
+    $post = Post::find(1);
+    $post->update([
+        'title' => 'update title',
+        'content' => 'updated  content',
+    ]);
+    return 'success';
 
 });
 
