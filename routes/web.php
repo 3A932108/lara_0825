@@ -56,15 +56,15 @@ Route::get('/', function () {
     $post->save();
 });*/
     /*P5刪除DB資料
-     *用delete刪除一筆資料*/
+     *用delete刪除一筆資料
     $post = Post::find(1);
     $post->delete();
-    return 'Delete success.';
+    return 'Delete success.';*/
 
-    /*用destroy刪除單筆或多筆資料
-    //Post::destroy(2);
-    Post::destroy(5,7,9);
-    return 'Delete success.'; */
+    /*用destroy刪除單筆或多筆資料*/
+    Post::destroy(2);
+
+    return 'Delete success.';
 
     Route::get('posts', [PostController::class, 'index'])
         ->name('posts.index');
