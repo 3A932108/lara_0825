@@ -50,11 +50,9 @@ Route::get('/', function () {
     dd($posts); */
 
     $post = Post::find(1);
-    $post->update([
-        'title' => 'update title',
-        'content' => 'updated  content',
-    ]);
-    return 'success';
+    $post->title = 'saved title ';
+    $post->content = 'saved content';
+    $post->save();
 
 });
 
