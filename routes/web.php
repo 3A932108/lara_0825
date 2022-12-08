@@ -25,11 +25,11 @@ Route::get('/', function () {
         'title'=>'created title',
         'content'=>'created content',]);
     return 'Saved success.';
-    /*3-1用find方法查詢post(只能找1筆)*/
+    /*3-1用find方法查詢post(只能找1筆)
        $post = Post::find(1);
        echo '標題' .$post->title. '<br>';
        echo '內容' .$post->content. '<br>';
-       dd($post);
+       dd($post);*/
 
 
     /*3-2用all方法查尋post(全部都可以找)
@@ -45,9 +45,9 @@ Route::get('/', function () {
     dd($posts);
     */
 
-    /*3-3用where方法查尋id小於10的貼文，並遞減排序
+    /*3-3用where方法查尋id小於10的貼文，並遞減排序*/
     $posts = Post::where('id','<','10')->orderBy('id','DESC')->get();
-    dd($posts); */
+    dd($posts);
 
 
 
