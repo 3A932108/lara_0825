@@ -62,8 +62,8 @@ Route::get('/', function () {
     return 'Delete success.';*/
 
     /*用destroy刪除單筆或多筆資料*/
-    Post::destroy(2);
 
+    Post::destroy(3,4,5,6,7,8,9,10);
     return 'Delete success.';
 
     Route::get('posts', [PostController::class, 'index'])
