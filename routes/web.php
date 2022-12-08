@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Post
+use App\Models\Post;
 use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,12 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return redirect(route('posts.index'));
+   // return redirect(route('posts.index'));
+    $post = new Post();
+    $post->title="test_title";
+    $post->content="test_content";
+    $post->save();
+    return 'Saved success.';
 });
 
 Route::get('posts',[PostController::class, 'index'])
